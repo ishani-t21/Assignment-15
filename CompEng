@@ -1,1 +1,12 @@
+#include <iostream>
 
+int main() {
+    std::cout << "Computer Engineering \n"; // Displays the quotations 
+    std::cout << " (ﾉ◕ヮ◕)ﾉ*:･✧TEAM 3✧ﾟ･: *ヽ(◕ヮ◕ヽ)\n\n"; //quotations and skips two lines
+    
+   int assignmentNumb ;
+   assignmentNumb = 15; // Established a variable for the assignment number
+   std::cout << "This is our code for assignment " << assignmentNumb << ", which is the last assignment of the year!!" ; 
+   
+    return 0;
+}
