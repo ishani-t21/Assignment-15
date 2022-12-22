@@ -1,0 +1,34 @@
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+int guess_counter = 1;
+int main() {
+//Below function creates a starting point for random integers
+  srand(time(0));
+  int AnswerNumber = rand() % 100 + 1;
+
+  // Prompts the user to guess
+  cout << "Guess a number between 1 and 100!" << endl;
+  int guess;
+  cin >> guess;
+
+  // Keep asking the user to guess until they get it right
+  while (guess != AnswerNumber) {
+    guess_counter += 1;
+    if (guess < AnswerNumber) {
+      cout << "Incorrect, guess higher: ";
+    } else {
+      cout << "Incorrect, guess lower: ";
+    }
+    cin >> guess;
+  }
+
+string strg = to_string(guess_counter);
+  //Correct Guess
+cout << "Congratulations! You have guessed the correct number, it took you ";
+cout << strg;
+cout << " guesses!" << endl;
+
+  return 0;
+}
