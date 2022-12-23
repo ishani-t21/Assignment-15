@@ -1,0 +1,43 @@
+// The total number of seconds entered are converted into days, hours, minutes and seconds depending on the length
+
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+int main() {
+  // Prompt to enter total number of seconds
+  cout << "Enter a number of seconds: " ;
+  int total_sec;
+  cin >> total_sec;
+
+  int rem_sec;
+  int minutes;
+  int hours;
+  int days;
+  
+  if (total_sec < 60) {
+    cout << total_sec << " second(s) = " << total_sec << " second(s)";
+  }
+  else if (total_sec < 3600) {
+    minutes = total_sec / 60;
+    rem_sec = total_sec % 60;
+    cout << total_sec << " second(s) = " << minutes << " minute(s) and " <<
+         rem_sec << " second(s)";
+  }
+  else if (total_sec < 86400) {
+    hours = total_sec / 3600;
+    minutes = total_sec % 3600 / 60;
+    rem_sec = total_sec % 60;
+    cout << total_sec << " second(s) = " << hours << " hour(s), " <<
+         minutes << " minute(s) and " << rem_sec << " second(s)";
+  }
+  else {
+    days = total_sec / 86400;
+    hours = total_sec % 86400 / 3600;
+    minutes = total_sec % 3600 / 60;
+    rem_sec = total_sec % 60;
+    cout << total_sec << " second(s) = " << days << " day(s), " << hours
+         << " hour(s), " << minutes << " minute(s) and " <<
+         rem_sec << " second(s)";
+  }
+}
