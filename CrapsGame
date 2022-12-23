@@ -1,4 +1,4 @@
-/* Bet in each round from the amount of money left. On the first roll in a round, the player may win or lose based on the sum of the dice. Otherwise, on subsequent rolls, the player wins if they get their goal or they lose if the sum is 6. They may earn or lose money in each round until the game is over. */
+/* Bet in each round from the amount of money left. On the first roll in a round, the player may win or lose based on the sum of the dice. Otherwise, on subsequent rolls, the player wins if they get their goal or they lose if the sum is 7. They may earn or lose money in each round until the game is over. */
 
 #include <iostream>
 #include <cstdlib>
@@ -59,8 +59,8 @@ int main() {
         // reset sum to 0 for rolling again
         sum_dice = 0;
 
-        // keep rolling until sum equals the goal or 6
-        while (sum_dice != goal and sum_dice != 6) {
+        // keep rolling until sum equals the goal or 7
+        while (sum_dice != goal and sum_dice != 7) {
           int dice1 = rand() % 6 + 1;
           int dice2 = rand() % 6 + 1;
           cout << "\n" << dice1 << ", " << dice2;
@@ -72,7 +72,7 @@ int main() {
           amtLeft = amtLeft + bet;
           cout << " You have $" << amtLeft << " remaining.\n";
         }
-        else if (sum_dice == 6) {
+        else if (sum_dice == 7) {
           cout << "\nYou lose.";
           amtLeft = amtLeft - bet;
           cout << " You have $" << amtLeft << " remaining.\n";
