@@ -17,11 +17,11 @@ int main() {
   string name;
   cout << "\nPlease enter your name: ";
   cin >> name;
-  cout << "\nHi " << name << "!, let's begin the game!\n";
+  cout << "\nHi " << name << "!, let's begin the game.\n";
   
   // start off with $100
   int amtLeft = 100;
-  // reset value of bet to 0
+  // set value of bet to 0
   int bet = 0;
 
   // keep playing until no money left
