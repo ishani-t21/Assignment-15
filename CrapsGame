@@ -5,6 +5,7 @@
 
 using namespace std;
 int main() {
+  srand(time(0));
   cout << "\n ------------------------------------------------------------------------";
   cout << "\n    CCCCC      AA       SSSSSSSSS   IIIIIIIII  NN     NN    OOOOOOOO     ";
   cout << "\n  CC          A  A      SS             III     NN N   NN   OO      OO    ";
@@ -28,8 +29,8 @@ int main() {
     }
     else {
       // roll two dice
-      int dice1 = (rand() % 6) + 1;
-      int dice2 = (rand() % 6) + 1;
+      int dice1 = rand() % 6 + 1;
+      int dice2 = rand() % 6 + 1;
       cout << "\n" << dice1 << ", " << dice2;
       int sum_dice = dice1 + dice2;
 
@@ -55,8 +56,8 @@ int main() {
 
         // keep rolling until sum equals the goal or 6
         while (sum_dice != goal and sum_dice != 6) {
-          dice1 = (rand() % 6) + 1;
-          dice2 = (rand() % 6) + 1;
+          int dice1 = rand() % 6 + 1;
+          int dice2 = rand() % 6 + 1;
           cout << "\n" << dice1 << ", " << dice2;
           sum_dice = dice1 + dice2;
         }
