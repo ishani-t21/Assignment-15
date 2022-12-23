@@ -1,3 +1,5 @@
+/* Bet in each round from the amount of money left. On the first roll in a round, the player may win or lose based on the sum of the dice. Otherwise, on subsequent rolls, the player wins if they get their goal or they lose if the sum is 6. They may earn or lose money in each round until the game is over. */
+
 #include <iostream>
 #include <cstdlib>
 
@@ -11,9 +13,12 @@ int main() {
   cout << "\n    CCCCC  A        A   SSSSSSSSS   IIIIIIIII  NN     NN    OOOOOOOO     ";
   cout << "\n ------------------------------------------------------------------------";
 
+  // start off with $100
   int amtLeft = 100;
+  // reset value of bet to 0
   int bet = 0;
 
+  // keep playing until no money left
   while (amtLeft != 0) {
     cout << "\nEnter a bet that is less than or equal to $" << amtLeft << " : ";
     cin >> bet;
@@ -22,26 +27,34 @@ int main() {
       cout << "\nNot a valid choice.";
     }
     else {
+      // roll two dice
       int dice1 = (rand() % 6) + 1;
       int dice2 = (rand() % 6) + 1;
       cout << "\n" << dice1 << ", " << dice2;
       int sum_dice = dice1 + dice2;
-      
+
+      // lose round if sum of dice is 2, 3 or 12
       if (sum_dice == 2 or sum_dice == 3 or sum_dice == 12) {
         cout << "\nYou lose.";
         amtLeft = amtLeft - bet;
         cout << " You have $" << amtLeft << " remaining.\n";
       }
+
+      // win round if sum of dice is 7 or 11
       else if (sum_dice == 7 or sum_dice == 11) {
         cout << "\nYou win!";
         amtLeft = amtLeft + bet;
         cout << " You have $" << amtLeft << " remaining.\n";
       }
+
+      // otherwise save the sum as the goal
       else {
         int goal = sum_dice;
+        // reset sum to 0 for rolling again
         sum_dice = 0;
-        
-        while (sum_dice != goal and sum_dice != 7) {
+
+        // keep rolling until sum equals the goal or 6
+        while (sum_dice != goal and sum_dice != 6) {
           dice1 = (rand() % 6) + 1;
           dice2 = (rand() % 6) + 1;
           cout << "\n" << dice1 << ", " << dice2;
@@ -53,7 +66,7 @@ int main() {
           amtLeft = amtLeft + bet;
           cout << " You have $" << amtLeft << " remaining.\n";
         }
-        else if (sum_dice == 7) {
+        else if (sum_dice == 6) {
           cout << "\nYou lose.";
           amtLeft = amtLeft - bet;
           cout << " You have $" << amtLeft << " remaining.\n";
