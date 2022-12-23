@@ -1,0 +1,65 @@
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+int main() {
+  cout << "\n ------------------------------------------------------------------------";
+  cout << "\n    CCCCC      AA       SSSSSSSSS   IIIIIIIII  NN     NN    OOOOOOOO     ";
+  cout << "\n  CC          A  A      SS             III     NN N   NN   OO      OO    ";
+  cout << "\n CC          A    A     SSSSSSSSS      III     NN  N  NN   OO      OO    ";
+  cout << "\n  CC        AAAAAAAA           SS      III     NN   N NN   OO      OO    ";
+  cout << "\n    CCCCC  A        A   SSSSSSSSS   IIIIIIIII  NN     NN    OOOOOOOO     ";
+  cout << "\n ------------------------------------------------------------------------";
+
+  int amtLeft = 100;
+  int bet = 0;
+
+  while (amtLeft != 0) {
+    cout << "\nEnter a bet that is less than or equal to $" << amtLeft << " : ";
+    cin >> bet;
+
+    if (bet > amtLeft) {
+      cout << "\nNot a valid choice.";
+    }
+    else {
+      int dice1 = (rand() % 6) + 1;
+      int dice2 = (rand() % 6) + 1;
+      cout << "\n" << dice1 << ", " << dice2;
+      int sum_dice = dice1 + dice2;
+      
+      if (sum_dice == 2 or sum_dice == 3 or sum_dice == 12) {
+        cout << "\nYou lose.";
+        amtLeft = amtLeft - bet;
+        cout << " You have $" << amtLeft << " remaining.\n";
+      }
+      else if (sum_dice == 7 or sum_dice == 11) {
+        cout << "\nYou win!";
+        amtLeft = amtLeft + bet;
+        cout << " You have $" << amtLeft << " remaining.\n";
+      }
+      else {
+        int goal = sum_dice;
+        sum_dice = 0;
+        
+        while (sum_dice != goal and sum_dice != 7) {
+          dice1 = (rand() % 6) + 1;
+          dice2 = (rand() % 6) + 1;
+          cout << "\n" << dice1 << ", " << dice2;
+          sum_dice = dice1 + dice2;
+        }
+        
+        if (sum_dice == goal) {
+          cout << "\nYou win!";
+          amtLeft = amtLeft + bet;
+          cout << " You have $" << amtLeft << " remaining.\n";
+        }
+        else if (sum_dice == 7) {
+          cout << "\nYou lose.";
+          amtLeft = amtLeft - bet;
+          cout << " You have $" << amtLeft << " remaining.\n";
+        }
+      }
+    }
+  }
+  cout << "\nGame over.";
+}
