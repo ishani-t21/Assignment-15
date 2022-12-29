@@ -1,4 +1,4 @@
-/* Bet in each round from the amount of money left. On the first roll in a round, the player may win or lose based on the sum of the dice. Otherwise, on subsequent rolls, the player wins if they get their goal or they lose if the sum is 7. They may earn or lose money in each round until the game is over. */
+/* Bet in each round from the amount of money left. On the first roll in a round, the player may win or lose based on the sum of the dice. Otherwise, on subsequent rolls, the player wins if they get their goal or lose if the sum is 7. They may earn or lose money in each round until the game is over. */
 
 #include <iostream>
 #include <cstdlib>
