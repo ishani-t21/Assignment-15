@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+# include <ctime>
+
+int DIME()
+{
+	int flip;
+	flip=  rand()% 2 + 1;// assign number
+				if (flip == 1)
+				cout << "Heads!" << endl; //Displays when the random value is 1 (aka heads)
+				else
+				cout << "Tails!" << endl; //Displays when the random value is 2 (aka tails)
+
+	return (flip);
+}
+
+int main ()
+{
+    int TotalFlips = 3; // flip the dime 3 times 
+	int count, outcome, heads = 0, tails = 0;
+	
+	    srand(static_cast<int>(time(0))); //initialise random number generator 
+	
+	for (int count=1; count <= TotalFlips; count++) // count the number of heads and tails that were flip (out of three flips) 
+     {
+        outcome = DIME();
+		if (outcome == 1) 
+            heads++;
+         else
+            tails++;
+	 cout << outcome << endl;
+		
+     }
+     cout << " \n\n"; //space to sperate the results and the 3 flips
+     cout << "🐧Results🐧:" <<  endl;
+     cout << "Total Number of Heads: " << heads <<  endl; //Total flips on heads
+     cout << "Total Number of Tails: " << tails <<  endl;//Total flips on tails
+}
